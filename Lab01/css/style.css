@@ -1,0 +1,38 @@
+body {
+    font-family: "Comic Sans MS";
+    background-color:antiquewhite;
+    padding: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding:0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 15px;
+}
+
+h1 {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th,td {
+    border: 1px solid brown;
+    padding: 10px;
+}
+th {
+    background-color: rgb(225, 177, 177);
+}
+
+footer {
+    margin-top: 20px;
+    padding: 5px;
+    background-color: rgb(225, 177, 177);
+    text-align: center;
+}
