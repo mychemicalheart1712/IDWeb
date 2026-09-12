@@ -9,9 +9,13 @@ nav ul {
     padding:0;
 }
 
-nav li {
-    display: inline;
-    margin-right: 15px;
+nav {
+    float: left;
+    width: 150px;
+}
+
+main {
+    margin-left: 170px;
 }
 
 h1 {
@@ -31,6 +35,7 @@ th {
 }
 
 footer {
+    clear: both;
     margin-top: 20px;
     padding: 5px;
     background-color: rgb(225, 177, 177);
