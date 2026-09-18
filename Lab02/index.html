@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiantes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Registro de Estudiantes</h1>
+    <form action="/procesar" method="POST" class="form-container">
+        <fieldset>
+            <legend>Información Personal</legend>
+            <div>
+                <label for="nombre">Nombres:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+
+            <div>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos">
+            </div>
+
+            <div>
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento">
+            </div>
+
+            <div>
+                <label for="egreso">Año de egreso:</label>
+                <input type="number" id="egreso" name="egreso">
+            </div>
+
+            <div>
+                <label for="cui">CUI:</label>
+                <input type="numer" id="cui" name="cui">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Información de la Cuenta</legend>
+            <div>
+                <label for="email">Correo Institucional:</label>
+                <input type="email" id="email" name="email"
+                    required placeholder="usuario@universidad.edu.pe">
+            </div>
+
+            <div>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Información Académica</legend>
+            <div>
+                <label for="carrera">Carrera Profesional:</label>
+                <select id="carrera" name="carrera">
+                    <option value="">Seleccione carrera</option>
+                    <option value="sistemas">Ingeniería de Sistemas</option>
+                    <option value="sanitaria">Ingeniería Sanitaria</option>
+                    <option value="mecanica">Ingeniería Mecanica</option>
+                    <option value="industrial">Ingeniería Industrial</option>
+                    <option value="ambiental">Ingeniería Ambiental</option>
+                    <option value="materiales">Ingeniería de Materiales</option>
+                    <option value="quimica">Ingeniería Quimica</option>
+                    <option value="civil">Ingeniería Civil</option>
+                    <option value="minas">Ingeniería de Minas</option>
+                    <option value="electrica">Ingeniería Electrica</option>
+                    <option value="electronica">Ingeniería Electronica</option>
+                    <option value="telecomunicaciones">Ingeniería de telecomunicaciones</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Turnos:</p>
+                <input type="radio" id="manana" name="turno" value="manana">
+                <label for="manana">Mañana</label>
+                <input type="radio" id="tarde" name="turno" value="tarde">
+                <label for="tarde">Tarde</label>
+                <input type="radio" id="noche" name="turno" value="noche">
+                <label for="noche">Noche</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <label for="checkbox">Acepto los terminos y condiciones</label>
+            </div>
+
+            <div>
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+            </div>
+        </fieldset>
+        
+        <button type="submit">Registrarme</button>
+    </form>
+    
+</body>
+</html>
