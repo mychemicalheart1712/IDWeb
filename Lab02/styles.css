@@ -1,0 +1,87 @@
+* {
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dfe9f1;
+    padding: 20px;
+}
+
+.card {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px #bab9b9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+fieldset {
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+legend {
+    padding: 0 8px;
+    font-weight: bold;
+    color: #0f766e;
+}
+
+.btn {
+    padding: 10px 22px;
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(52, 144, 133);    
+}
+
+.btn:active {
+    background-color: #134e4a;   
+}
+
+.form-input:focus {
+    border-color: #0f766e;
+    outline: none;
+    box-shadow: 0 0 5px rgba(15, 118, 110, 0.5);
+}
+
+.btn:disabled {
+    background-color: #cbd5e0;
+    color: #718096;
+    cursor: not-allowed;
+}
