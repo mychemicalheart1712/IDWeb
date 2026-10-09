@@ -10,8 +10,18 @@ const btnTodas = document.querySelector("#btn-todas");
 const btnPendientes= document.querySelector("#btn-pendientes");
 const btnCompletadas= document.querySelector("#btn-completadas");
 
-//arreglo de tareas
+
 let tareas = [];
+function renderizarTareas(){
+    listaTareas.innerHTML = "";
+
+    tareas.forEach((t) => {
+        const li = document.createElement("li");
+        li.className = "list-group-item";
+        li.textContent= `${t.titulo}  -  ${t.curso} (Entrega: ${t.fechaEntrega})`;
+        listaTareas.appendChild(li);
+    });
+}
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -34,15 +44,16 @@ form.addEventListener("submit", (evento) => {
 
     const tarea = {
         id: Date.now(),
-        titulo: inputTitulo.value,
-        curso: inputCurso.value,
-        fechaEntrega: inputFecha.value,
+        titulo: titulo,
+        curso: curso,
+        fechaEntrega: fechaEntrega,
         completada: false
     };
 
     tareas.push(tarea);
+    renderizarTareas();
     form.reset();
-    console.log(tareas);
 
 });
+
 
