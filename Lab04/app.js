@@ -12,4 +12,27 @@ const btnCompletadas= document.querySelector("#btn-completadas");
 
 //arreglo de tareas
 let tareas = [];
-console.log(form, inputTitulo, inputCurso, inputFecha, divAlertas, listaTareas, btnTodas, btnPendientes, btnCompletadas, tareas);
+
+form.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const titulo = inputTitulo.value.trim();
+    const curso= inputCurso.value.trim();
+    const fechaEntrega = inputFecha.value;
+
+    if (titulo === "" || curso==="" || fechaEntrega ===""){
+        divAlertas.innerHTML = '<div class="alert alert-danger">Todos los campos son obligatorios</div>';
+        return;
+    }
+
+    const hoy = new Date();
+    hoy.setHours(0,0,0,0);
+    const fechaElegida = new Date(fechaEntrega + "T00:00:00");
+    if (fechaElegida <= hoy){
+        divAlertas.innerHTML = '<div class="alert alert-danger">La fecha de entrega debe ser posterior a hoy</div>';
+        return;
+    }
+
+    divAlertas.innerHTML = "";
+    console.log(titulo, curso, fechaEntrega);
+    console.log("Formulario enviado");
+});
