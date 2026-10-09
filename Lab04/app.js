@@ -17,11 +17,66 @@ function renderizarTareas(){
 
     tareas.forEach((t) => {
         const li = document.createElement("li");
-        li.className = "list-group-item";
-        li.textContent= `${t.titulo}  -  ${t.curso} (Entrega: ${t.fechaEntrega})`;
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.dataset.id = t.id;
+               
+        const span = document.createElement("span");
+        span.textContent= `${t.titulo}  -  ${t.curso} (Entrega: ${t.fechaEntrega})`;
+        span.classList.toggle("text-decoration-line-through", t.completada);
+        
+        const btnEliminar = document.createElement("button");
+        btnEliminar.type = "button";
+        btnEliminar.className = "btn btn-danger btn-sm";
+        btnEliminar.textContent = "Eliminar";
+
+        const btnCompletar = document.createElement("button");
+        btnCompletar.type = "button";
+        btnCompletar.className = "btn btn-success btn-sm me-2";
+        btnCompletar.textContent = "Completar";
+
+        li.appendChild(span);
+        li.appendChild(btnCompletar);
+        li.appendChild(btnEliminar);
         listaTareas.appendChild(li);
     });
 }
+
+function eliminarTarea (id) {
+    tareas=tareas.filter(function(t){
+        if (t.id !== id){
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+    renderizarTareas();
+}
+
+function completarTarea (id) {
+    tareas=tareas.map(function(t) {
+        if (t.id === id){
+            t.completada = !t.completada;
+        }
+        return t;
+    });
+    renderizarTareas();
+}
+
+listaTareas.addEventListener("click", (e) =>{
+    const elemento= e.target;
+    if (elemento.classList.contains("btn-danger")){
+        const li= elemento.closest("li");
+        const id = Number(li.dataset.id);
+        eliminarTarea(id);
+    }
+
+    if (elemento.classList.contains("btn-success")){
+        const li= elemento.closest("li");
+        const id = Number(li.dataset.id);
+        completarTarea(id);
+    }
+});
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
