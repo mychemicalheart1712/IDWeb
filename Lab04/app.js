@@ -12,10 +12,18 @@ const btnCompletadas= document.querySelector("#btn-completadas");
 
 
 let tareas = [];
+let filtro = "Todas";
 function renderizarTareas(){
     listaTareas.innerHTML = "";
+    let tareasVisibles = tareas;
+    if (filtro === "Pendientes"){
+        tareasVisibles = tareas.filter((t) => !t.completada);
+    }
+    if (filtro === "Completadas"){
+        tareasVisibles = tareas.filter((t)=> t.completada)
+    }
 
-    tareas.forEach((t) => {
+    tareasVisibles.forEach((t) => {
         const li = document.createElement("li");
         li.className = "list-group-item d-flex justify-content-between align-items-center";
         li.dataset.id = t.id;
@@ -110,5 +118,19 @@ form.addEventListener("submit", (evento) => {
     form.reset();
 
 });
+
+btnTodas.addEventListener("click", () => {
+    filtro= "Todas";
+    renderizarTareas();
+});
+btnPendientes.addEventListener("click", () => {
+    filtro = "Pendientes";
+    renderizarTareas();
+});
+btnCompletadas.addEventListener("click", () => {
+    filtro = "Completadas";
+    renderizarTareas();
+});
+
 
 
