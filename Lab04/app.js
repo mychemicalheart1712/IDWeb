@@ -18,7 +18,6 @@ form.addEventListener("submit", (evento) => {
     const titulo = inputTitulo.value.trim();
     const curso= inputCurso.value.trim();
     const fechaEntrega = inputFecha.value;
-
     if (titulo === "" || curso==="" || fechaEntrega ===""){
         divAlertas.innerHTML = '<div class="alert alert-danger">Todos los campos son obligatorios</div>';
         return;
@@ -31,8 +30,19 @@ form.addEventListener("submit", (evento) => {
         divAlertas.innerHTML = '<div class="alert alert-danger">La fecha de entrega debe ser posterior a hoy</div>';
         return;
     }
-
     divAlertas.innerHTML = "";
-    console.log(titulo, curso, fechaEntrega);
-    console.log("Formulario enviado");
+
+    const tarea = {
+        id: Date.now(),
+        titulo: inputTitulo.value,
+        curso: inputCurso.value,
+        fechaEntrega: inputFecha.value,
+        completada: false
+    };
+
+    tareas.push(tarea);
+    form.reset();
+    console.log(tareas);
+
 });
+
