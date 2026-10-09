@@ -58,6 +58,7 @@ function eliminarTarea (id) {
             return false;
         }
     });
+    guardarTareas()
     renderizarTareas();
 }
 
@@ -68,7 +69,12 @@ function completarTarea (id) {
         }
         return t;
     });
+    guardarTareas()
     renderizarTareas();
+}
+
+function guardarTareas() {
+    localStorage.setItem("tareas", JSON.stringify(tareas));
 }
 
 listaTareas.addEventListener("click", (e) =>{
@@ -114,6 +120,7 @@ form.addEventListener("submit", (evento) => {
     };
 
     tareas.push(tarea);
+    guardarTareas()
     renderizarTareas();
     form.reset();
 
