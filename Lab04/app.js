@@ -11,7 +11,7 @@ const btnPendientes= document.querySelector("#btn-pendientes");
 const btnCompletadas= document.querySelector("#btn-completadas");
 
 
-let tareas = [];
+let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 let filtro = "Todas";
 function renderizarTareas(){
     listaTareas.innerHTML = "";
@@ -58,7 +58,7 @@ function eliminarTarea (id) {
             return false;
         }
     });
-    guardarTareas()
+    guardarTareas();
     renderizarTareas();
 }
 
@@ -69,7 +69,7 @@ function completarTarea (id) {
         }
         return t;
     });
-    guardarTareas()
+    guardarTareas();
     renderizarTareas();
 }
 
@@ -120,7 +120,7 @@ form.addEventListener("submit", (evento) => {
     };
 
     tareas.push(tarea);
-    guardarTareas()
+    guardarTareas();
     renderizarTareas();
     form.reset();
 
@@ -139,5 +139,4 @@ btnCompletadas.addEventListener("click", () => {
     renderizarTareas();
 });
 
-
-
+document.addEventListener("DOMContentLoaded", renderizarTareas);
