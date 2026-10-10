@@ -4,6 +4,7 @@ const inputCurso = document.querySelector("#curso");
 const inputFecha = document.querySelector("#fecha-entrega");
 const divAlertas = document.querySelector("#alertas");
 
+const contadorTareas = document.querySelector('#contador'); 
 const listaTareas= document.querySelector("#lista-tareas");
 
 const btnTodas = document.querySelector("#btn-todas");
@@ -47,6 +48,15 @@ function renderizarTareas(){
         li.appendChild(btnEliminar);
         listaTareas.appendChild(li);
     });
+
+    const cantidadPendientes = tareas.reduce((i, t) => {
+        if (!t.completada){
+            return i+1;
+        }
+        return i;
+    }, 0);
+    contadorTareas.textContent = `Pendientes: ${cantidadPendientes} de ${tareas.length}`;
+
 }
 
 function eliminarTarea (id) {
@@ -109,6 +119,13 @@ form.addEventListener("submit", (evento) => {
         divAlertas.innerHTML = '<div class="alert alert-danger">La fecha de entrega debe ser posterior a hoy</div>';
         return;
     }
+
+    const repetida =tareas.find((t) => t.titulo === titulo && t.curso === curso);
+    if (repetida){
+        divAlertas.innerHTML = '<div class="alert alert-danger">Esa tarea ya existe</div>';
+        return;
+    }
+
     divAlertas.innerHTML = "";
 
     const tarea = {
