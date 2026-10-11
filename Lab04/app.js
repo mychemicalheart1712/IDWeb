@@ -12,7 +12,15 @@ const btnPendientes= document.querySelector("#btn-pendientes");
 const btnCompletadas= document.querySelector("#btn-completadas");
 
 
-let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+let tareas = [];
+try {
+   tareas = JSON.parse(localStorage.getItem("tareas")) || []; 
+} 
+catch (error) {
+    tareas = [];
+    console.log("Datos guardados dañados, empezando desde cero");
+}
+
 let filtro = "Todas";
 function renderizarTareas(){
     listaTareas.innerHTML = "";
@@ -157,3 +165,6 @@ btnCompletadas.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", renderizarTareas);
+
+
+
