@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(224, 236, 255);
+}
+
+.contenedor {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgb(247, 250, 255);
+    border-radius: 15px;
+    box-shadow: 7px 12px 10px rgba(79, 80, 125, 0.532);
+}
+
+label {
+    margin-top: 13px;
+}
+
+form button {
+    margin-top: 15px;
+}
+
+.botonFiltro {
+   display: flex;
+    margin-top: 20px;
+    gap: 13px;
+}
+
+#contador {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#alertas {
+    margin: 20px;
+}
+

@@ -8,23 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="form-tareas">
-        <label for="titulo">Titulo</label>
-        <input type="text" id="titulo" class="form-control">
-        <label for="curso">Curso</label>
-        <input type="text" id="curso" class="form-control">
-        <label for="fecha-entrega">Fecha de Entrega</label>
-        <input type="date" id="fecha-entrega" class="form-control">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    <div class="contenedor"> 
+        <form id="form-tareas">
+            <h2> Tareas Universitarias</h2>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" class="form-control">
+            <label for="curso">Curso</label>
+            <input type="text" id="curso" class="form-control">
+            <label for="fecha-entrega">Fecha de Entrega</label>
+            <input type="date" id="fecha-entrega" class="form-control">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div id="alertas"></div>
+        <div class="botonFiltro">
+            <button type="button" id="btn-todas" class="btn btn-primary">Todas</button>
+            <button type="button" id="btn-pendientes" class="btn btn-primary">Pendientes</button>
+            <button type="button" id="btn-completadas" class="btn btn-primary">Completadas</button>
+        </div>
+        
+        <p id="contador"></p>
+        <ul id="lista-tareas" class="list-group"></ul>
+    </div>
 
-    <button type="button" id="btn-todas" class="btn btn-primary">Todas</button>
-    <button type="button" id="btn-pendientes" class="btn btn-primary">Pendientes</button>
-    <button type="button" id="btn-completadas" class="btn btn-primary">Completadas</button>
-    <p id="contador"></p>
-    <ul id="lista-tareas" class="list-group"></ul>
-
-    <div id="alertas"></div>
     <script src="app.js"></script>
 </body>
 
